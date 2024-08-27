@@ -30,20 +30,20 @@
 
 # Solución
 def print_triangle(size, character):
-    blank_spaces = size - 1
+    blank_spaces_count = size - 1
     pieces = 1
     triangle = ''
     for i in range(1, size + 1):
         if i != 1 and i < size:
-            triangle = triangle + "\n" + " " * blank_spaces + character * pieces
+            triangle = triangle + "\n" + " " * blank_spaces_count + character * pieces
         elif i == 1:
-            triangle = " "*blank_spaces + character *pieces
+            triangle = " "*blank_spaces_count + character *pieces
         else:
             triangle = triangle + "\n" + character *pieces
         pieces += 2
-        blank_spaces -= 1
+        blank_spaces_count -= 1
     print(triangle)
     return triangle
 
-print_triangle(5,"$")
+print_triangle(50,"A")
 
