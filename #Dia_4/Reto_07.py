@@ -53,7 +53,8 @@ packages_1 = [
   (7, 18.7, "Argentina"),
   (8, 5, "Colombia"),
   (9, 22.3, "Argentina"),
-  (10, 14.8, "Colombia")
+  (10, 14.8, "Colombia"),
+  (11, 10, "Peru")
 ]
 
 def get_packages_info(packages):
@@ -79,5 +80,5 @@ def get_packages_info(packages):
         
         
 
-get_packages_info(packages_1)
-
+info = get_packages_info(packages_1)
+print(info)

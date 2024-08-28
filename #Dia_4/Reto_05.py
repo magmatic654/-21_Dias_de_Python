@@ -65,11 +65,11 @@ cats_list_1 = [
   },
   {
     "name": "Yusepe",
-    "followers": [250, 750]
+    "followers": [250, 751]
   },
   {
     "name": "Gary",
-    "followers": [500, 200, 200, 100, 1]
+    "followers": [500, 200, 200, 99]
   }
 ]
 
