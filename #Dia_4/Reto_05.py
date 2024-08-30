@@ -118,7 +118,6 @@ print("Propuesta #1:",find_famous_cat(cats_list_1))
 
 # Propuesta #2
 ########################################################################
-
 def find_famous_cat(cats_list):
     max_followers = 0
     famous_cat = []
@@ -151,7 +150,6 @@ print("Propuesta #2:",find_famous_cat(cats_list_1))
 
 # Propuesta #3
 ########################################################################
-
 def find_famous_cat(cats_list):
     max_followers = 0
     famous_cat = []
@@ -175,3 +173,12 @@ def find_famous_cat(cats_list):
             
 
 print("Propuesta #3:",find_famous_cat(cats_list_1))
+
+
+# Propuesta #4 - List comprehension
+########################################################################
+def find_famous_cat(cats):
+    famous_cat = max(sum(followers for followers in cat['followers']) for cat in cats)
+    return  [cat['name'] for cat in cats if sum(followers for followers in cat['followers']) >= famous_cat]
+
+print("Propuesta #4:",find_famous_cat(cats_list_1))

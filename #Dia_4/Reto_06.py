@@ -55,22 +55,25 @@
 #     }
 #   ]
 # }
+import timeit
 
-dict_classroom = [
-  {
-    "name": "Pedro",
-    "grades": [90, 87, 88, 90],
-  },
-  {
-    "name": "Jose",
-    "grades": [99, 71, 88, 96],
-  },
-  {
-    "name": "Maria",
-    "grades": [92, 81, 80, 96],
-  },
+dict_1 = [
+    {
+        "name": "Pedro",
+        "grades": [90, 87, 88, 90],
+    },
+    {
+        "name": "Jose",
+        "grades": [99, 71],
+    },
+    {
+        "name": "Maria",
+        "grades": [92, 81, 80, 96],
+    } 
 ]
-def get_student_average(classroom):    
+
+
+def get_student_average_v1(classroom):    
     new_dict_classroom = {
         'class_average': float(),
         'students': []
@@ -90,4 +93,25 @@ def get_student_average(classroom):
     new_dict_classroom['class_average'] = classroom_average
     return new_dict_classroom
 
-print(get_student_average(dict_classroom))
+
+
+########################################################################
+# Utilizando dict comprehension reduce el tiempo de ejecucion de la función en un 22.5% en promedio
+def get_student_average_v2(students):
+    class_average = round(sum(sum(student['grades'])  for student in students) / sum(len(student['grades']) for student in students),2)
+    students_average = [{'name': student['name'], 'average': round(sum(student['grades'])/len(student['grades'] ),2)} for student in students ]
+    return {'class_average': class_average, 'students': students_average}
+
+timer_a = timeit.Timer(lambda: get_student_average_v1(dict_1))
+
+timer_b = timeit.Timer(lambda: get_student_average_v2(dict_1))
+
+# Número de veces que se ejecutará cada función
+num_runs = 10000
+
+# Mide los tiempos de ejecución
+time_a = timer_a.timeit(number=num_runs)
+time_b = timer_b.timeit(number=num_runs)
+
+print(f"Tiempo de ejecución de función_a: {time_a:.6f} segundos")
+print(f"Tiempo de ejecución de función_b: {time_b:.6f} segundos")
