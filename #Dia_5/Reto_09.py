@@ -52,10 +52,10 @@ def find_largest_palindrome(words_list):
     else:
         return None
 
-prueba_1 = find_largest_palindrome(["racecar", "level", "world", "hello"])
-print(prueba_1)
-prueba_2 = find_largest_palindrome(["Platzi", "Python", "django", "flask"])
-print(prueba_2)
+# prueba_1 = find_largest_palindrome(["racecar", "level", "world", "hello"])
+# print(prueba_1)
+# prueba_2 = find_largest_palindrome(["Platzi", "Python", "django", "flask"])
+# print(prueba_2)
 
 # Propuesta #2
 #######################################################################################
@@ -71,6 +71,28 @@ def find_largest_palindrome(words):
       
    return palindrome if palindrome else None
 
+# prueba_1 = find_largest_palindrome(["racecar", "level", "world", "hello"])
+# print(prueba_1)
+# prueba_2 = find_largest_palindrome(["Platzi", "Python", "django", "flask"])
+# print(prueba_2)
+
+# Propuesta #3
+#######################################################################################
+# Utilizando List Comprehesion
+def find_largest_palindrome(words):
+    palindromes = [word for word in words if word == word[::-1]]
+    return max(palindromes, key=len, default=None)
+
+
+prueba_1 = find_largest_palindrome(["racecar", "level", "world", "hello"])
+print(prueba_1)
+prueba_2 = find_largest_palindrome(["Platzi", "Python", "django", "flask"])
+print(prueba_2)
+
+
+# Propuesta #4
+#######################################################################################
+find_largest_palindrome = lambda words: max([word for word in words if word == word[::-1]], key=len, default=None)
 prueba_1 = find_largest_palindrome(["racecar", "level", "world", "hello"])
 print(prueba_1)
 prueba_2 = find_largest_palindrome(["Platzi", "Python", "django", "flask"])
