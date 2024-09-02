@@ -122,10 +122,9 @@ def createTaskPlanner():
                 break
 
     def getSortedTasksByPriority():
-        new_tasks = [task for task in tasks]
         priority = lambda task: task['priority']
-        new_tasks.sort(key=priority)
-        return new_tasks
+        return sorted(tasks, key=priority)
+        
     
     def filterTasksByTag(tag):
         return [task for task in tasks if tag in task['tags']]
